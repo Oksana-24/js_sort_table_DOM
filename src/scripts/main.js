@@ -7,7 +7,13 @@ const bodyTable = table.querySelector('tbody');
 head.addEventListener('click', onClick);
 
 function onClick(eve) {
-  const indexTh = eve.target.closest('th').cellIndex;
+  const clickedHeader = eve.target.closest('th');
+
+  if (!clickedHeader) {
+    return;
+  }
+
+  const indexTh = clickedHeader.cellIndex;
 
   const row = bodyTable.querySelectorAll('tr');
   const arrayRow = Array.from(row);
